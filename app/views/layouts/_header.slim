@@ -5,5 +5,9 @@ header.main
     .collapse.navbar-collapse
       ul.nav.navbar-nav
         li.nav-item
-          = link_to '#', class: 'nav-link'
-            | Log In
+          - if user_signed_in?
+            = link_to destroy_user_session_path, class: 'nav-link', method: :delete
+              | Log out
+          - else
+            = link_to new_user_session_path, class: 'nav-link'
+              | Log In
