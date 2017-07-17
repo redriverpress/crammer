@@ -28,6 +28,10 @@ gem 'active_model_serializers'
 gem 'react-rails'
 # Use js-routes for exposing named route helpers to JS
 gem 'js-routes'
+# Use ActiveAdmin for the admin dashboard
+gem 'activeadmin'
+# Use cancancan for authorization
+gem 'cancancan'
 
 # Use Slim for view templating
 gem 'slim-rails'
