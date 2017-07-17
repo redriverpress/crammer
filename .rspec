@@ -1,0 +1,6 @@
+--format Fuubar
+--profile
+--color
+--require spec_helper
+--tag ~ignore
+--tag focus
