@@ -24,8 +24,6 @@ Complete the following user stories (including system level sub-tasks). The fron
   - Include state checkboxes on the edit form
 
 2. As a user, I want to be able to create classes, so that I can define logical groups for students.
-  - Create a model called `Crammer::Class` with a name and a user_id (eg. `name, string, NOT NULL`, `user, reference, NOT NULL`)
-  - Validate presence of name and user
   - Create a controller called `Crammer::ClassesController` with a `#create` action
   - Test this controller action with RSpec (via controller unit test)
 
