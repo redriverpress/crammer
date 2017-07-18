@@ -8,4 +8,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   enum access: ACCESS_LEVELS
+
+  has_many :crammer_classes, class_name: 'Crammer::Class'
 end

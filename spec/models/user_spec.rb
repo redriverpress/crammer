@@ -4,6 +4,10 @@ RSpec.describe User, type: :model do
 
   subject { create :user }
 
+  context 'associations' do
+    it { should have_many(:crammer_classes).class_name('Crammer::Class') }
+  end
+
   context 'validations' do
     it { should validate_presence_of :email }
   end
