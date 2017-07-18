@@ -1,24 +1,49 @@
-# README
+# Crammer
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Crammer is an LMS app with tasks for you to complete. Good luck!
 
-Things you may want to cover:
+## Setup
 
-* Ruby version
+NOTE: PostgreSQL, Poltergeist, and Qt are dependencies of this app. If you do not have an environment that supports these, you may use [this virtual machine](https://github.com/redriverpress/rails-dev-box).
 
-* System dependencies
+1. Install ruby 2.3.3 with `rbenv install 2.3.3`
+2. Install bundled gems with `bundle install`
+3. Define your database config at `config/database.yml` (See `config/database.example.yml` for help).
+4. Run `bundle exec rake db:create` to create your development and test databases.
+5. Run `bundle exec rake db:test:prepare` to load the schema into your test database.
 
-* Configuration
+## Instructions
 
-* Database creation
+NOTE: If you are unfamiliar with testing rails, be sure to study up on [RSpec](https://github.com/rspec/rspec-rails#model-specs), [FactoryGirl](https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md#defining-factories), [ShouldaMatchers](https://github.com/thoughtbot/shoulda-matchers#activemodel-matchers) [SitePrism](https://github.com/natritmeyer/site_prism#introduction-to-the-page-object-model), and [Turnip/Cucumber](https://github.com/jnicklas/turnip#usage).
 
-* Database initialization
+Complete the following user stories (including system level sub-tasks). The front end for these user stories is entirely up to you. You may use Angular, React, or pure server-side view rendering.
 
-* How to run the test suite
+1. As admin, I want to be able to manage users, so that I can create, update, and destroy users on the site.
+  - Register users with ActiveAdmin
+  - Add filters for email and access attributes
+  - Show email, sign_in_count, and access on the index table
+  - Include state checkboxes on the edit form
 
-* Services (job queues, cache servers, search engines, etc.)
+2. As a user, I want to be able to create classes, so that I can define logical groups for students.
+  - Create a model called `Crammer::Class` with a name and a user_id (eg. `name, string, NOT NULL`, `user, reference, NOT NULL`)
+  - Validate presence of name and user
+  - Create a controller called `Crammer::ClassesController` with a `#create` action
+  - Test this controller action with RSpec (via controller unit test)
 
-* Deployment instructions
+3. As a user, I want to be able to list classes, so that I can see all of my classes.
+  - Add an `#index` action to `Crammer::ClassesController`
+  - Only load classes created by the current user
+  - Test the listing of students with RSpec (via acceptance test)
 
-* ...
+4. As a user, I want to be able to remove classes, so that I can delete an old class.
+  - Add an `#destroy` action to `Crammer::ClassesController`
+
+5. As a user, I want to be able to add student users to my classes, so that I can place students into logical groups.
+  - Create a model called `Crammer::Placement` with a user_id and a crammer_class_id (eg. `user, reference, NOT NULL` and `crammer_class, reference, NOT NULL`)
+  - Validate presence of user and crammer class
+  - Test these validations and associations with RSpec (via model unit test)
+  - Create a controller called `Crammer::PlacementsController` with a `#create` action
+
+6. As a user, I want to be able to list class students, so that I can see all students in a given class.
+  - Add an `#index` action to `Crammer::PlacementsController`
+  - Route this controller using nested resources

@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  timeout: 5000
+  pool: 5
+  port: 5432
+  host: localhost
+  encoding: unicode
+  username: root
+  password: root
+
+development:
+  <<: *default
+  database: crammer_development
+
+test:
+  <<: *default
+  database: crammer_test
+
+production:
+  <<: *default
+  database: crammer_production

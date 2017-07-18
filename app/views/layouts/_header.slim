@@ -1,0 +1,17 @@
+header.main
+  nav.navbar.navbar-light.bg-faded.navbar-toggleable-xl
+    = link_to root_path, class: 'navbar-brand'
+      | Crammer
+    .collapse.navbar-collapse
+      ul.nav.navbar-nav
+        - if user_signed_in?
+          li.nav-item.email
+            = link_to edit_user_registration_path, class: 'nav-link'
+              = current_user.email
+        li.nav-item
+          - if user_signed_in?
+            = link_to destroy_user_session_path, class: 'nav-link', method: :delete
+              | Log out
+          - else
+            = link_to new_user_session_path, class: 'nav-link'
+              | Log in
