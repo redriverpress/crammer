@@ -2,5 +2,6 @@
 --profile
 --color
 --require spec_helper
+--require turnip/rspec
 --tag ~ignore
 --tag focus
