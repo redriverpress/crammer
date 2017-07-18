@@ -8,6 +8,11 @@ default: &default
   username: root
   password: root
 
+vagrant: &vagrant
+  <<: *default
+  username: vagrant
+  password: vagrant
+
 development:
   <<: *default
   database: crammer_development

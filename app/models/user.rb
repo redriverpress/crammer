@@ -8,4 +8,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   enum access: ACCESS_LEVELS
+
+  has_many :crammer_classes, class_name: 'Crammer::Class'
+
+  protected
+
+  def password_required?
+    reset_password_token.present? || password_confirmation.present? || new_record?
+  end
 end
