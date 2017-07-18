@@ -21,7 +21,6 @@ Complete the following user stories (including system level sub-tasks). The fron
 1. As admin, I want to be able to manage users, so that I can create, update, and destroy users on the site.
   - Register users with ActiveAdmin
   - Add filters for email and access attributes
-  - Show email, sign_in_count, and access on the index table
   - Include state checkboxes on the edit form
 
 2. As a user, I want to be able to create classes, so that I can define logical groups for students.
