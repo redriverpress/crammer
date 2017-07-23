@@ -1,0 +1,9 @@
+h1 New Class
+
+= form_for @classes do |f|
+  .field
+    = f.label :name
+    br
+    = f.text_field :name
+  br
+    = f.submit "Create new class"
