@@ -1,5 +1,5 @@
 class ClassesController < ApplicationController
-  include SessionsHelper
+  # include SessionsHelper
 
   def new
     @new_classes = Crammer.new
@@ -7,7 +7,7 @@ class ClassesController < ApplicationController
 
   def create
     @new_classes = Crammer.create(user_params)
-    if logged_in?
+    if user_signed_in?
       @new_classes.user_id = current_user.id
     end
     if @new_classes.save
