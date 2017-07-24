@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  namespace :crammer do
+    get 'placements_controller/new'
+  end
+
+  namespace :crammer do
+    get 'placements_controller/create'
+  end
+
   get 'classes/destroy'
 
   get 'classes/index'

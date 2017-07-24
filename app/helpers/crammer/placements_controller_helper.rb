@@ -1,0 +1,2 @@
+module Crammer::PlacementsControllerHelper
+end
