@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get 'classes/new'
 
-  get 'classes/create'
+  post 'classes/create'
 
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
