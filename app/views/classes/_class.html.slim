@@ -2,3 +2,5 @@
 .crammer-class
   h4 = crammer_class.name
   p 0 Students
+  - session[:name] = crammer_class.name 
+  p = link_to 'Delete', classes_destroy_path

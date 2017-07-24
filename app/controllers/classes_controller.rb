@@ -19,7 +19,8 @@ class ClassesController < ApplicationController
   end
 
   def destroy
-    # @selected_classes = @all_classes.find(params[:id])
+    @crammer_classes = Crammer::Class.where('user_id = ?', current_user.id)
+    @crammer_classes = @crammer_classes.where('name = ?', session[:name]).first
     @crammer_classes.destroy
   end
 
