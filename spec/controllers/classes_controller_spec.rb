@@ -5,6 +5,7 @@ RSpec.describe ClassesController, type: :controller do
   describe "GET #new" do
     it "returns http success" do
       get :new
+      expect(response).to render_template(:new)
       expect(response).to have_http_status(:success)
     end
   end
@@ -12,6 +13,7 @@ RSpec.describe ClassesController, type: :controller do
   describe "GET #create" do
     it "returns http success" do
       get :create
+      expect(response).to render_template(:create) 
       expect(response).to have_http_status(:success)
     end
   end

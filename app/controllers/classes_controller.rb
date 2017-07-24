@@ -7,6 +7,7 @@ class ClassesController < ApplicationController
   def create
     @crammer_classes = Crammer::Class.new params[:name]
     @crammer_classes.user_id = current_user.id
+    # Save failed, commit rollback
     if @crammer_classes.save
       redirect_to root_path
     else
