@@ -1,2 +1,5 @@
-h1 Crammer::Classes#new
-p Find me in app/views/crammer/classes/new.html.slim
+h1 Create new class
+
+= simple_form_for @crammer_class, url: crammer_classes_path do |f|
+  = f.input :name
+  = f.button :submit

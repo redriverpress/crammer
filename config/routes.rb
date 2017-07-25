@@ -1,18 +1,6 @@
 Rails.application.routes.draw do
   namespace :crammer do
-    get 'classes/new'
-  end
-
-  namespace :crammer do
-    get 'classes/create'
-  end
-
-  namespace :crammer do
-    get 'classes/index'
-  end
-
-  namespace :crammer do
-    get 'classes/destroy'
+    resources :classes, only: [:index, :new, :create, :destroy]
   end
 
   devise_for :users
