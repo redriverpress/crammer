@@ -1,0 +1,2 @@
+module Crammer::ClassesHelper
+end
