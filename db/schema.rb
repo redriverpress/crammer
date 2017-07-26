@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170718144956) do
+ActiveRecord::Schema.define(version: 20170726022553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,15 @@ ActiveRecord::Schema.define(version: 20170718144956) do
     t.index ["user_id"], name: "index_crammer_classes_on_user_id", using: :btree
   end
 
+  create_table "crammer_placements", force: :cascade do |t|
+    t.integer  "user_id",          null: false
+    t.integer  "crammer_class_id", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["crammer_class_id"], name: "index_crammer_placements_on_crammer_class_id", using: :btree
+    t.index ["user_id"], name: "index_crammer_placements_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -55,4 +64,6 @@ ActiveRecord::Schema.define(version: 20170718144956) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "crammer_placements", "crammer_classes"
+  add_foreign_key "crammer_placements", "users"
 end
