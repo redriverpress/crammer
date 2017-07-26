@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   namespace :crammer do
+    get 'placements/new'
+  end
+
+  namespace :crammer do
+    get 'placements/create'
+  end
+
+  namespace :crammer do
     resources :classes, only: [:index, :new, :create, :destroy]
   end
 
