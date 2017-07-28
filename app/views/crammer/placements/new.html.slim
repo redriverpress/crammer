@@ -1,2 +1,6 @@
-h1 Crammer::Placements#new
-p Find me in app/views/crammer/placements/new.html.slim
+h1 New Placement
+
+= simple_form_for @crammer_placement, url: crammer_placements_path do |f|
+  = f.input :user_id, :label => 'Student ID'
+  = f.input :crammer_class_id, :label => 'Crammer Class ID'
+  = f.button :submit

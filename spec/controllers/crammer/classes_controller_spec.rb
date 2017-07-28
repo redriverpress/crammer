@@ -9,17 +9,35 @@ RSpec.describe Crammer::ClassesController, type: :controller do
     end
   end
 
-  describe "GET #create" do
-    it "returns http success" do
-      get :create
-      expect(response).to have_http_status(:success)
+  describe "POST #create" do
+    context 'with valid params' do
+      post crammer_classes_path, params: { crammer_class: {name: "English", user_id: 1}}
+      assert_response :success
+    end
+    context 'with invalid params missing user_id' do
+      post crammer_classes_path, params: { crammer_class: {name: "English"}}
+      expect(response).to redirect_to new_crammer_class_path
+    end
+    context 'with invalid params missing name' do
+      post crammer_classes_path, params: { crammer_class: {user_id: 1}}
+      expect(response).to redirect_to new_crammer_class_path
     end
   end
 
   describe "GET #index" do
-    it "returns http success" do
-      get :index
-      expect(response).to have_http_status(:success)
+    context 'when user is logged in' do
+      it 'renders the classes page' do
+        english = FactoryGirl.create(:crammer_class, name: 'English', user_id: 1)
+        computer = FactoryGirl.create(:crammer_class, name: 'Computer', user_id: 1)
+        get crammer_classes_path
+        expect(assigns(:crammer_classes)).to match_array([english, computer])
+      end
+    end
+    context 'when user is logged out' do
+      it 'redirects to login page' do
+        get crammer_classes_path
+        expect(response).to render_template :index
+      end
     end
   end
 

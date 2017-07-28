@@ -10,6 +10,7 @@ class User < ApplicationRecord
   enum access: ACCESS_LEVELS
 
   has_many :crammer_classes, class_name: 'Crammer::Class'
+  has_many :crammer_placements, class_name: 'Crammer::Placement'
 
   protected
 
