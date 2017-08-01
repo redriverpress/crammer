@@ -9,7 +9,7 @@ RSpec.describe Crammer::Placement, type: :model do
   end
 
   context 'validations' do
-    it { should validate_presence_of :name }
+    it { should validate_presence_of :crammer_class }
     it { should validate_presence_of :user }
   end
 end

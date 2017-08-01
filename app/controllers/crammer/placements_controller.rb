@@ -4,7 +4,7 @@ class Crammer::PlacementsController < ApplicationController
   end
 
   def create
-    @crammer_placement = current_user.crammer_placements.new crammer_placement_params
+    @crammer_placement = Crammer::Placement.new crammer_placement_params
 
     if @crammer_placement.save
       redirect_to crammer_classes_path

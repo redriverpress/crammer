@@ -10,17 +10,17 @@ RSpec.describe Crammer::ClassesController, type: :controller do
   end
 
   describe "POST #create" do
-    context 'with valid params' do
+    it 'with valid params' do
       post crammer_classes_path, params: { crammer_class: {name: "English", user_id: 1}}
       assert_response :success
     end
-    context 'with invalid params missing user_id' do
+    it 'with invalid params missing user_id' do
       post crammer_classes_path, params: { crammer_class: {name: "English"}}
-      expect(response).to redirect_to new_crammer_class_path
+      it { shouldredirect_to :new }
     end
-    context 'with invalid params missing name' do
+    it 'with invalid params missing name' do
       post crammer_classes_path, params: { crammer_class: {user_id: 1}}
-      expect(response).to redirect_to new_crammer_class_path
+      it { shouldredirect_to :new }
     end
   end
 
