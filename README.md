@@ -6,7 +6,7 @@ Crammer is an LMS app with tasks for you to complete. Good luck!
 
 NOTE: PostgreSQL, Poltergeist, and Qt are dependencies of this app. If you do not have an environment that supports these, you may use [this virtual machine](https://github.com/redriverpress/rails-dev-box).
 
-1. Install ruby 2.3.3 with `rbenv install 2.3.3`
+1. Install ruby 2.3.3
 2. Install bundled gems with `bundle install`
 3. Define your database config at `config/database.yml` (See `config/database.example.yml` for help).
 4. Run `bundle exec rake db:create` to create your development and test databases.
@@ -14,7 +14,7 @@ NOTE: PostgreSQL, Poltergeist, and Qt are dependencies of this app. If you do no
 
 ## Instructions
 
-NOTE: If you are unfamiliar with testing rails, be sure to study up on [RSpec](https://github.com/rspec/rspec-rails#model-specs), [FactoryGirl](https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md#defining-factories), [ShouldaMatchers](https://github.com/thoughtbot/shoulda-matchers#activemodel-matchers) [SitePrism](https://github.com/natritmeyer/site_prism#introduction-to-the-page-object-model), and [Turnip/Cucumber](https://github.com/jnicklas/turnip#usage).
+NOTE: If you are unfamiliar with testing rails, be sure to study up on [RSpec](https://github.com/rspec/rspec-rails#model-specs), [FactoryGirl](https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md#defining-factories), [ShouldaMatchers](https://github.com/thoughtbot/shoulda-matchers#activemodel-matchers), [SitePrism](https://github.com/natritmeyer/site_prism#introduction-to-the-page-object-model), and [Turnip/Cucumber](https://github.com/jnicklas/turnip#usage).
 
 Complete the following user stories (including system level sub-tasks). The front end for these user stories is entirely up to you. You may use Angular, React, or pure server-side view rendering.
 
